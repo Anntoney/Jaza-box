@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "140098311924",
+    "firebase_url": "https://shop-4d79a.firebaseio.com",
+    "project_id": "shop-4d79a",
+    "storage_bucket": "shop-4d79a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140098311924:android:e3e39751aa75a5e1",
+        "android_client_info": {
+          "package_name": "com.tonney.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140098311924-ke346vpqmsvddcl9da4sbgj68dr0irc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0ONY0p7pjKiCODBDxEZ2Y5n_y1oXVtLQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
