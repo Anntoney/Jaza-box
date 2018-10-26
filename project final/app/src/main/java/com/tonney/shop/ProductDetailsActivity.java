@@ -95,9 +95,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productPrice = (TextView)findViewById(R.id.p_price);
         favoriteCount = (TextView)findViewById(R.id.favorite_count);
         productDescription = (TextView)findViewById(R.id.p_description);
-        productColor = (TextView)findViewById(R.id.p_color);
-        productSize = (TextView)findViewById(R.id.p_size);
-        productQuantity = (TextView)findViewById(R.id.p_quantity);
 
         favoriteIcon = (ImageView)findViewById(R.id.favorite_icon);
         //if a user has like this product disable icon.
@@ -127,12 +124,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-               //create new Cart object and add to cart list object
+                //create new Cart object and add to cart list object
                 if(productToCart != null){
 
                     CartObject orderItem = new CartObject(productIndex, productTitle, productToCart.getImages(), productToCart.getPrice(), 1,
-                       productToCart.getDiscount(), productToCart.getCoupon_type());
-                     ((CustomApplication)getApplication()).addMenuItemToCart(orderItem);
+                            productToCart.getDiscount(), productToCart.getCoupon_type());
+                    ((CustomApplication)getApplication()).addMenuItemToCart(orderItem);
 
 
                     invalidateCart();
@@ -141,7 +138,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     Helper.displayErrorMessage(ProductDetailsActivity.this, "Product has not been added to cart");
                 }
 
-           }
+            }
         });
     }
 
@@ -202,9 +199,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
                         productPrice.setText("Ksh" + productToCart.getPrice());
                         favoriteCount.setText("");
                         productDescription.setText(productToCart.getDescription());
-                        productColor.setText(productToCart.getColor());
-                        productSize.setText(""+ productToCart.getSize()+"ml");
-                        productQuantity.setText(productToCart.getQuantity() + " Items Available");
                         if(productToCart.getFavorite() == 1){
                             favoriteIcon.setImageResource(R.drawable.love);
                             favoriteIcon.setEnabled(false);

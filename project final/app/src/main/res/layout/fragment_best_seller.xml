@@ -34,7 +34,7 @@
                     android:background="@color/colorAccent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
-                    android:src="@drawable/tango" />
+                    android:src="@drawable/jazaboxlogo" />
 
             </android.support.v7.widget.CardView>
 

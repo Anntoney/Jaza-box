@@ -43,7 +43,7 @@ public class CasualFragment extends Fragment {
         recyclerView = (RecyclerView)view.findViewById(R.id.men_hat);
         GridLayoutManager mGrid = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(mGrid);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
 
         if(!Helper.isNetworkAvailable(getActivity())){
             Helper.displayErrorMessage(getActivity(), getString(R.string.no_internet));

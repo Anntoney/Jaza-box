@@ -19,15 +19,16 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import com.tonney.shop.entity.UserObject;
 import com.tonney.shop.network.GsonRequest;
 import com.tonney.shop.network.VolleySingleton;
 import com.tonney.shop.utils.CustomApplication;
 import com.tonney.shop.utils.Helper;
-import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView error;
     private EditText email;
     private EditText password;
+
 
     private SweetAlertDialog dialog;
     @Override
@@ -52,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
             actionBar.hide();
         }
 
-        dialog = new SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE);
+        dialog = new SweetAlertDialog(LoginActivity.this,SweetAlertDialog.PROGRESS_TYPE);
 
         UserObject mUser = ((CustomApplication)getApplication()).getLoginUser();
         if(mUser != null){
@@ -99,9 +101,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginToRemoteServer(String email, String password){
-        dialog.setContentText("Signing you in...");
+      dialog.setContentText("Signing you in...");
         dialog.setTitleText("Please Wait :)");
-        dialog.show();
+       dialog.show();
         Map<String, String> params = new HashMap<String,String>();
         params.put(Helper.EMAIL, email);
         params.put(Helper.PASSWORD, password);

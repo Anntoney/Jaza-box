@@ -397,72 +397,9 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_8sdp"
                 android:orientation="vertical">
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:padding="5dp"
-        android:src="@drawable/paypal"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
-    <RadioButton
-        android:layout_gravity="center"
-        android:id="@+id/pay_pal_payment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="@color/colorLight"
-        android:textSize="@dimen/_13sdp"
-        android:text="@string/pay_with_paypal"
-        android:layout_marginLeft="@dimen/_3sdp"
-        android:layout_marginStart="@dimen/_3sdp"
-        />
-</LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <ImageView
-                    android:padding="5dp"
-                    android:src="@drawable/visa"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
 
-                <RadioButton
-                    android:layout_marginLeft="@dimen/_3sdp"
-                    android:layout_marginStart="@dimen/_3sdp"
-                    android:layout_gravity="center"
-                    android:id="@+id/credit_card_payment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorLight"
-                    android:textSize="@dimen/_13sdp"
-                    android:text="@string/pay_with_credit_card"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <ImageView
-                    android:padding="5dp"
-                    android:src="@drawable/cash_two"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
-                <RadioButton
-                    android:layout_marginLeft="@dimen/_3sdp"
-                    android:layout_marginStart="@dimen/_3sdp"
-                    android:layout_gravity="center"
-                    android:id="@+id/cash_on_delivery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorLight"
-                    android:textSize="@dimen/_13sdp"
-                    android:text="@string/pay_cash_on_deleivery"/>
-                </LinearLayout>
-                <LinearLayout
+
+               <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -496,7 +433,7 @@
         android:id="@+id/place_an_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/promotion_blue"
+        android:background="@color/colorPrimary2"
         android:padding="@dimen/_16sdp"
         android:text="@string/place_order_now"
         android:textColor="@color/colorWhite"

@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="91dp"
         android:scaleType="fitXY"
-        android:src="@drawable/tango" />
+        android:src="@drawable/jazaboxlogo" />
 
 
     <!--<android.support.v4.view.ViewPager-->

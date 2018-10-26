@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_8sdp"
-        android:src="@drawable/tango"
+        android:src="@drawable/jazaboxlogo"
         android:id="@+id/circleView"/>
 
     <TextView

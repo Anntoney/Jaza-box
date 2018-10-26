@@ -3,13 +3,17 @@ package com.tonney.shop;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -31,6 +35,8 @@ public class LoginOptionActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_option);
+
+        imageAnimation();
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -63,6 +69,18 @@ public class LoginOptionActivity extends AppCompatActivity {
                 startActivity(signInIntent);
             }
         });
+    }
+
+    private void imageAnimation() {
+
+        ImageView profileImage = (ImageView) findViewById(R.id.login_Image);
+
+        Animation myanim = AnimationUtils.loadAnimation(this,R.anim.mysplashanimation);
+        profileImage.startAnimation(myanim);
+
+
+
+
     }
 
 
@@ -123,4 +141,6 @@ public class LoginOptionActivity extends AppCompatActivity {
         }
         return commaSeperated.substring(0, commaSeperated.length() - 1);
     }
+
+
 }

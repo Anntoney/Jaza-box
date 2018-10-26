@@ -28,11 +28,11 @@ public class ShopHomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shop_home, container, false);
         getActivity().setTitle(getString(R.string.exotics));
 
-        tabLayout = (TabLayout)view.findViewById(R.id.tabs);
+        //tabLayout = (TabLayout)view.findViewById(R.id.tabs);
         viewPager = (ViewPager)view.findViewById(R.id.view_pager);
 
         viewPager.setAdapter(new CustomFragmentPageAdapter(getChildFragmentManager(), getActivity()));
-        tabLayout.setupWithViewPager(viewPager);
+        //tabLayout.setupWithViewPager(viewPager);
 
         return view;
     }

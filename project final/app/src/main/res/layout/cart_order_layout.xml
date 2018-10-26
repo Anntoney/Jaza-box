@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:text="@string/amount"
-            android:textColor="@color/promotion_red"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/_12sdp" />
 
 

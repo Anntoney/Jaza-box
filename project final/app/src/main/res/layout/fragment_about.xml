@@ -8,7 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/opening_time"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
         android:scrollbars="none">
 
         <LinearLayout
@@ -82,10 +85,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_4sdp"
                         android:contentDescription="@string/app_name"
-                        android:paddingBottom="@dimen/_2sdp"
                         android:paddingRight="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_2sdp"
                         android:scaleType="center"
-                        android:src="@drawable/timer" />
+                        android:src="@drawable/ic_phone_black_24dp" />
 
                     <TextView
                         android:id="@+id/store_phone_number"
@@ -96,6 +99,39 @@
                         android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:contentDescription="@string/app_name"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_phone_black_24dp" />
+
+                    <TextView
+                        android:text="@string/phone_number"
+                        android:id="@+id/store_phone_number2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_11sdp" />
+
+                </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="@dimen/_150sdp"
@@ -110,10 +146,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_4sdp"
                         android:contentDescription="@string/app_name"
-                        android:paddingBottom="@dimen/_2sdp"
                         android:paddingRight="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_2sdp"
                         android:scaleType="center"
-                        android:src="@drawable/timer" />
+                        android:src="@drawable/ic_email_black_24dp" />
 
                     <TextView
                         android:id="@+id/store_email"

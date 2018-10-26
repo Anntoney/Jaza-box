@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:visible="true"
         android:id="@+id/action_profile"
         android:title="@string/profile"
         app:showAsAction="ifRoom"
@@ -10,6 +11,8 @@
         android:icon="@drawable/ic_profile">
     </item>
     <item
+        
+        android:visible="true"
         android:id="@+id/action_orders"
         android:title="@string/orders"
         app:showAsAction="ifRoom"
@@ -17,6 +20,7 @@
         android:icon="@drawable/ic_order">
     </item>
     <item
+        android:visible="true"
         android:id="@+id/action_wallet"
         android:title="@string/wallet"
         app:showAsAction="ifRoom"
@@ -24,6 +28,8 @@
         android:icon="@drawable/ic_wallet">
     </item>
     <item
+
+        android:visible="true"
         android:id="@+id/action_deals"
         android:title="@string/deals"
         app:showAsAction="ifRoom"

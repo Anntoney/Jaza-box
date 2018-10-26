@@ -41,7 +41,7 @@ public class BestSellerFragment extends Fragment {
         bestRecyclerView = (RecyclerView)view.findViewById(R.id.best_seller_list);
         GridLayoutManager mGrid = new GridLayoutManager(getActivity(), 2);
         bestRecyclerView.setLayoutManager(mGrid);
-        bestRecyclerView.setHasFixedSize(true);
+        bestRecyclerView.setHasFixedSize(false);
         bestRecyclerView.setNestedScrollingEnabled(false);
 
         if(!Helper.isNetworkAvailable(getActivity())){

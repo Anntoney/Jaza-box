@@ -6,16 +6,17 @@
     <uses-sdk tools:overrideLibrary="com.paypal.android.sdk.payments" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
         android:name=".utils.CustomApplication"
         android:allowBackup="true"
-        android:icon="@drawable/tango"
+        android:icon="@drawable/jazaboxlogo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".IntroActivity">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,7 +56,8 @@
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/notificationicon" />
 
-      <!--  <service android:name="com.tonney.notification.CustomsFirebaseMessagingService">
+        <!--
+        <service android:name="com.tonney.notification.CustomsFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -64,13 +66,14 @@
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
-        </service>-->
-        <service android:name=".mpesa.MyFirebaseMessagingService"
+        </service>
+        -->
+        <service
+            android:name=".mpesa.MyFirebaseMessagingService"
             android:permission="com.google.android.c2dm.permission.SEN">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
-                    <action android:name="com.google.android.c2dm.intent.RECEIVE"
-                    />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service android:name=".mpesa.MyFirebaseInstanceIDService">
@@ -79,8 +82,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".CreditCardActivity"/>
-
+        <activity android:name=".CreditCardActivity" />
+        <activity android:name=".MpesaConfrimation"></activity>
     </application>
 
 </manifest>

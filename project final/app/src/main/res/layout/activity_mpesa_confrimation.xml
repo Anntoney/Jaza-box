@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MpesaConfrimation">
+
+
+    <ScrollView
+        android:layout_marginBottom="70dp"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <ImageView
+          android:src="@drawable/mpsa"
+          android:layout_width="match_parent"
+          android:layout_height="150dp" />
+    <TextView
+
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa1"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa2"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <TextView
+
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa3"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa4"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa5"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa6"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="43dp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="@string/mpesa7"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+    <EditText
+        android:id="@+id/etMpesaCode"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/mpesaCode"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+    <EditText
+        android:id="@+id/etMpesaNumberr"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:hint="@string/mpesaNumber"
+        android:textStyle="bold"
+        android:textColor="#6b6565"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+
+
+
+  </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/gg"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:textStyle="bold"
+            android:background="@color/colorPrimary2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:id="@+id/btnComplete"
+            android:hint="@string/Complete_Payement"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+
+
+
+
+  </RelativeLayout>
+
+

@@ -92,7 +92,7 @@ public class MenFragment extends Fragment {
                         recyclerView.setAdapter(mAdapter);
 
                     }else{
-                        Helper.displayErrorMessage(getActivity(), "No product found");
+                       // Helper.displayErrorMessage(getActivity(), "No product found");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

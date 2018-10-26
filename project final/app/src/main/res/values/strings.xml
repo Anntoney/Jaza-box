@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">Tango</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Jaza Box</string>
     <string name="get_started">GET STARTED</string>
     <string name="sign_in">SIGN IN</string>
     <string name="sign_up">SIGN UP</string>
@@ -11,6 +11,7 @@
     <string name="phone_number_hint">Phone number</string>
     <string name="terms_of_service">By signing up you agree to terms of service and privacy policy</string>
     <string name="title_activity_shop">Shop Home</string>
+    <string name="phone_number">0786805713</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -160,4 +161,20 @@
     <string name="exotic_perfumes">Tango</string>
     <string name="place_order">PLACE ORDER</string>
     <string name="lipa_na_mpesa">PAY WITH Lipa Na Mpesa</string>
+    <string name="large_text">LARGE TEXT</string>
+    <string name="mpesaCode">Enter Mpesa Code</string>
+    <string name="mpesaNumber">Enter Phone Number</string>
+    <string name="Complete_Payement">Complete Payement</string>
+
+
+    <string name="mpesa1" tools:ignore="ExtraTranslation">On your Safaricom phone go the M-PESA menu</string>
+    <string name="mpesa2" tools:ignore="DuplicateDefinition,ExtraTranslation">Select Lipa Na M-PESA and then select Buy Goods and Services</string>
+    <string name="mpesa3" tools:ignore="DuplicateDefinition,ExtraTranslation"> Enter the Till Number 317093 </string>
+    <string name="mpesa4" tools:ignore="DuplicateDefinition,ExtraTranslation"> Enter exactly the amount due</string>
+    <string name="mpesa5" tools:ignore="DuplicateDefinition,ExtraTranslation">Follow subsequent prompts to complete the transaction</string>
+    <string name="mpesa6" tools:ignore="DuplicateDefinition,ExtraTranslation">You will receive a confirmation SMS from M-PESA with a Confirmation Code.</string>
+    <string name="mpesa7" tools:ignore="DuplicateDefinition,ExtraTranslation"> After you receive the confirmation code, please input your phone number and
+        the confirmation code that you received from M-PESA below.</string>
+
+
 </resources>

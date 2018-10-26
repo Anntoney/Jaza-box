@@ -120,7 +120,7 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
     private List<CartObject> checkoutOrder;
     private String finalList;
 
-    private double subTotal;
+    public static double subTotal;
     private double finalCost;
 
     private Gson gson;
@@ -136,8 +136,8 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
     private int shippingCost;
     String payment = "";
     SweetAlertDialog pd;
-////////////////////
-private String mFireBaseRegId;
+    ////////////////////
+    private String mFireBaseRegId;
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private SharedPrefsUtil mSharedPrefsUtil;
 
@@ -181,7 +181,7 @@ private String mFireBaseRegId;
 
         getFirebaseRegId();
         ///////////////
-         pd= new SweetAlertDialog(CheckoutActivity.this,SweetAlertDialog.PROGRESS_TYPE);
+        pd= new SweetAlertDialog(CheckoutActivity.this,SweetAlertDialog.PROGRESS_TYPE);
         d=new ProgressDialog(this);
         d.setCancelable(false);
         ///////////
@@ -199,12 +199,6 @@ private String mFireBaseRegId;
         user = gson.fromJson(shared.getUserData(), UserObject.class);
 
         radioGroup = (RadioGroup)findViewById(R.id.radio_group);
-        payPalPayment = (RadioButton)findViewById(R.id.pay_pal_payment);
-        payPalPayment.setOnCheckedChangeListener(this);
-        creditCardPayment = (RadioButton)findViewById(R.id.credit_card_payment);
-        creditCardPayment.setOnCheckedChangeListener(this);
-        cashOnDelivery = (RadioButton)findViewById(R.id.cash_on_delivery);
-        cashOnDelivery.setOnCheckedChangeListener(this);
         lipaNaMpesa = (RadioButton)findViewById(R.id.lipaNaMpesa);
         lipaNaMpesa.setOnCheckedChangeListener(this);
 
@@ -313,8 +307,13 @@ private String mFireBaseRegId;
                     postCheckoutOrderToRemoteServer(String.valueOf(user.getId()), String.valueOf(checkoutOrder.size()), String.valueOf(productDiscount),
                             String.valueOf(taxPercent), String.valueOf(finalCost), sAddress, String.valueOf(shippingCost), paymentSelected, finalList);
                 }else if(paymentSelected.equalsIgnoreCase("LIPA NA MPESA")){
+                    String serverContent = user.getId() + ";" + checkoutOrder.size() + ";" + productDiscount + ";" + taxPercent +
+                            ";" + finalCost + ";" + sAddress + ";" + shippingCost + ";" + paymentSelected + ";" + finalList;
+                    Intent mpesaIntent = new Intent(CheckoutActivity.this, MpesaConfrimation.class);
+                    Log.d(TAG, "Server Content " + serverContent);
+                    mpesaIntent.putExtra("MPESA_PAYMENT", serverContent);
+                    startActivity(mpesaIntent);
 
-                    showMpesaPopup();
                 }
             }
         });
@@ -360,8 +359,8 @@ private String mFireBaseRegId;
         final TextView subTotal = d.findViewById(R.id.totalCostTV);
         subTotal.setText(String.valueOf(finalCost).split("\\.")[0]);
         d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-      //  d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-     //   d.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //  d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //   d.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         final TextInputEditText phone = d.findViewById(R.id.mpesa_phone_number);
 
         ImageView cancel = d.findViewById(R.id.cancelMpesaPopup);
@@ -375,7 +374,7 @@ private String mFireBaseRegId;
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Numb= phone.getText().toString();
+                Numb= phone.getText().toString();
                 if (!Numb.isEmpty()
                         && !String.valueOf(subTotal).equals("")
                         && Utils.isNetworkAvailable(CheckoutActivity.this))
@@ -500,8 +499,8 @@ private String mFireBaseRegId;
           */
 
             d.dismiss();
-           // Toast.makeText(CheckoutActivity.this, result, Toast.LENGTH_SHORT).show();
-          //  Log.d("RES::",result);
+            // Toast.makeText(CheckoutActivity.this, result, Toast.LENGTH_SHORT).show();
+            //  Log.d("RES::",result);
 
 
             try {
@@ -511,21 +510,21 @@ private String mFireBaseRegId;
                 String ResponseCode = object.getString("ResponseCode");
                 //todo: encrypt before saving to statics
                 MResponse.CheckoutRequestID= object.getString("CheckoutRequestID");
-             //   Toast.makeText(CheckoutActivity.this, MResponse.CheckoutRequestID, Toast.LENGTH_SHORT).show();
-                    if(ResponseCode.equals("0") && responseDescription.contains("Success. Request accepted for processing")){
-                        //it opened sim toolkit so tutume resp kwa callback url to see if he actually paid
+                //   Toast.makeText(CheckoutActivity.this, MResponse.CheckoutRequestID, Toast.LENGTH_SHORT).show();
+                if(ResponseCode.equals("0") && responseDescription.contains("Success. Request accepted for processing")){
+                    //it opened sim toolkit so tutume resp kwa callback url to see if he actually paid
 
-                        pd.setTitleText("Almost Done");
-                        pd.setContentText("Contacting servers ...");
-                        pd.show();
-                        ApiConstants.isFromstk=true;
+                    pd.setTitleText("Almost Done");
+                    pd.setContentText("Contacting servers ...");
+                    pd.show();
+                    ApiConstants.isFromstk=true;
 
-                    }else{
-                        //some other error for now istead of querying callback just an error resp will do
-                        //TODO:save history
-                        Toasty.error(CheckoutActivity.this,"Something went wrong.. Try again after some seconds",Toast.LENGTH_SHORT).show();
+                }else{
+                    //some other error for now istead of querying callback just an error resp will do
+                    //TODO:save history
+                    Toasty.error(CheckoutActivity.this,"Something went wrong.. Try again after some seconds",Toast.LENGTH_SHORT).show();
 
-                    }
+                }
 
 
 
@@ -545,47 +544,47 @@ private String mFireBaseRegId;
 
     private void ParseResult(String response, SweetAlertDialog pd) throws JSONException {
         SweetAlertDialog pdd = new SweetAlertDialog(CheckoutActivity.this,SweetAlertDialog.PROGRESS_TYPE);
-Log.d("CCCC: ",response);
-   JSONObject jsonObject= new JSONObject(response);
-   JSONObject body = jsonObject.getJSONObject("Body");
-   JSONObject stkCallback= body.getJSONObject("stkCallback");
-   String CODE= stkCallback.getString("ResultCode");
-   //Toasty.error(CheckoutActivity.this,CODE,Toast.LENGTH_LONG).show();
-if(CODE.trim().equals("0")){
+        Log.d("CCCC: ",response);
+        JSONObject jsonObject= new JSONObject(response);
+        JSONObject body = jsonObject.getJSONObject("Body");
+        JSONObject stkCallback= body.getJSONObject("stkCallback");
+        String CODE= stkCallback.getString("ResultCode");
+        //Toasty.error(CheckoutActivity.this,CODE,Toast.LENGTH_LONG).show();
+        if(CODE.trim().equals("0")){
 
 
 
-    pdd
-            .setTitleText("Order Successfull!")
-            .setContentText("")
-            .setConfirmText("OK")
-            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                @Override
-                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                    sweetAlertDialog.dismiss();
-                     finish();
-                }
-            })
-            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-    pdd.show();
+            pdd
+                    .setTitleText("Order Successfull!")
+                    .setContentText("")
+                    .setConfirmText("OK")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.dismiss();
+                            finish();
+                        }
+                    })
+                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+            pdd.show();
 
-    postCheckoutOrderToRemoteServer(String.valueOf(user.getId()), String.valueOf(checkoutOrder.size()), String.valueOf(productDiscount),
-       String.valueOf(taxPercent), String.valueOf(finalCost), returnAddress(), String.valueOf(shippingCost), paymentSelected, finalList);
+            postCheckoutOrderToRemoteServer(String.valueOf(user.getId()), String.valueOf(checkoutOrder.size()), String.valueOf(productDiscount),
+                    String.valueOf(taxPercent), String.valueOf(finalCost), returnAddress(), String.valueOf(shippingCost), paymentSelected, finalList);
 
-    pdd
-            .setTitleText("Order UnSuccessfull!")
-            .setContentText("Kindly, Try again after some time")
-            .setConfirmText("OK")
-            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                @Override
-                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                    sweetAlertDialog.dismiss();
-                    //finish();
-                }
-            })
-            .changeAlertType(SweetAlertDialog.ERROR_TYPE);
-    pdd.show();
-}
+            pdd
+                    .setTitleText("Order UnSuccessfull!")
+                    .setContentText("Kindly, Try again after some time")
+                    .setConfirmText("OK")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.dismiss();
+                            //finish();
+                        }
+                    })
+                    .changeAlertType(SweetAlertDialog.ERROR_TYPE);
+            pdd.show();
+        }
 
     }
 
@@ -702,15 +701,7 @@ if(CODE.trim().equals("0")){
     }
 
     private String getSelectedPayment(){
-        if(payPalPayment.isChecked()){
-            payment = "PAY PAL";
-        }
-        if(creditCardPayment.isChecked()){
-            payment= "CREDIT CARD";
-        }
         if(cashOnDelivery.isChecked()){
-            payment = "CASH ON DELIVERY";
-        } if(cashOnDelivery.isChecked()){
             payment = "LIPA NA MPESA";
         }
         return payment;
@@ -859,7 +850,7 @@ if(CODE.trim().equals("0")){
                     pd.dismissWithAnimation();
                     ApiConstants.isFromstk = false;
 
-                 //   Toasty.error(CheckoutActivity.this,response, Toast.LENGTH_LONG).show();
+                    //   Toasty.error(CheckoutActivity.this,response, Toast.LENGTH_LONG).show();
                     Log.d("XXXX", response);
 
 
@@ -919,7 +910,7 @@ if(CODE.trim().equals("0")){
 
 
 
-    }
+        }
         // register GCM registration complete receiver
         LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
                 new IntentFilter(REGISTRATION_COMPLETE));
@@ -938,42 +929,10 @@ if(CODE.trim().equals("0")){
 
 
         switch (compoundButton.getId()){
-            case R.id.pay_pal_payment:
-                if(b){
-                    payment = "PAY PAL";
-                    creditCardPayment.setChecked(false);
-                    cashOnDelivery.setChecked(false);
-                    lipaNaMpesa.setChecked(false);
 
-
-                }
-
-            break;
-            case R.id.credit_card_payment:
-                if(b){
-                    payment= "CREDIT CARD";
-                    payPalPayment.setChecked(false);
-                    cashOnDelivery.setChecked(false);
-                    lipaNaMpesa.setChecked(false);
-
-                }
-                break;
-            case R.id.cash_on_delivery:
-                if(b){
-                    payment = "CASH ON DELIVERY";
-                    payPalPayment.setChecked(false);
-                    creditCardPayment.setChecked(false);
-                    lipaNaMpesa.setChecked(false);
-
-                }
-                break;
             case R.id.lipaNaMpesa:
                 if(b){
                     payment = "LIPA NA MPESA";
-                    payPalPayment.setChecked(false);
-                    cashOnDelivery.setChecked(false);
-                    creditCardPayment.setChecked(false);
-
 
                 }
                 break;

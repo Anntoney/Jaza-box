@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.ProgressBar;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -27,10 +28,7 @@ public class CategoryProductActivity extends AppCompatActivity {
 
     private static final String TAG = CategoryProductActivity.class.getSimpleName();
     private ProgressBar progressBar;
-    private boolean isLoading = true;
-    private int pageNumer = 1;
-    private   int pastVisibleItems,visibleItemCount,totalItemCount,previous_total = 0;
-    private int view_threshold = 10;
+
 
 
     private RecyclerView recyclerView;
@@ -51,7 +49,7 @@ public class CategoryProductActivity extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.category_in_product);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
 
         if(!Helper.isNetworkAvailable(this)){
             Helper.displayErrorMessage(this, getString(R.string.no_internet));
@@ -99,6 +97,7 @@ public class CategoryProductActivity extends AppCompatActivity {
                         for(int i = 0; i < response.length; i++){
                             productList.add(response[i]);
                         }
+                        Log.d("product list size",String.valueOf(productList.size()));
                         CategoryProductAdapter mAdapter = new CategoryProductAdapter(CategoryProductActivity.this, productList);
                         recyclerView.setAdapter(mAdapter);
                     }else{

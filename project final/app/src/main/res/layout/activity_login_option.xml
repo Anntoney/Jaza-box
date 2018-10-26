@@ -4,20 +4,20 @@
     android:id="@+id/activity_login_option"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tangobackground"
+    android:background="#fff"
     tools:context="com.tonney.shop.LoginOptionActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_110sdp"
+        android:id="@+id/login_Image"
+        android:layout_width="wrap_content"
+        android:layout_height="479dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="156dp"
-        android:src="@drawable/tango"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="91dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/jazaboxlogo" />
 
 
     <LinearLayout
@@ -34,7 +34,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_4sdp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary2"
             android:text="@string/sign_in"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_12sdp" />
@@ -48,7 +48,7 @@
             android:layout_marginLeft="@dimen/_4sdp"
             android:text="@string/sign_up"
             android:textSize="@dimen/_12sdp"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorPrimary2"/>
 
     </LinearLayout>
 

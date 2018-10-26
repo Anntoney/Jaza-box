@@ -18,7 +18,7 @@
             android:id="@+id/profile_image"
             android:layout_width="@dimen/_110sdp"
             android:layout_height="@dimen/_110sdp"
-            android:src="@drawable/tango"/>
+            android:src="@drawable/jazaboxlogo"/>
 
     </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_24sdp"
         android:text="@string/edit_profile"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/_11sdp"
         android:background="@drawable/border"/>
 
@@ -67,7 +67,5 @@
         android:textColor="@color/colorLight"
         android:layout_gravity="center"
         android:textSize="@dimen/_13sdp"/>
-
-
 
 </LinearLayout>

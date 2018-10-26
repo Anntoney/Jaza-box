@@ -19,15 +19,16 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 import com.tonney.shop.entity.UserObject;
 import com.tonney.shop.network.GsonRequest;
 import com.tonney.shop.network.VolleySingleton;
 import com.tonney.shop.utils.CustomApplication;
 import com.tonney.shop.utils.Helper;
-import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -91,9 +92,9 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void registerToRemoteServer(String fullname, String username, String email, String password, String address, String phoneNumber){
-        dialog.setContentText("Signing up..");
-        dialog.setTitleText(" ");
-        dialog.show();
+       dialog.setContentText("Signing up..");
+       dialog.setTitleText(" ");
+       dialog.show();
 
         Map<String, String> params = new HashMap<String,String>();
         params.put(Helper.FULLNAME, fullname);
@@ -123,7 +124,7 @@ public class SignUpActivity extends AppCompatActivity {
         return new Response.Listener<UserObject>() {
             @Override
             public void onResponse(UserObject response) {
-                dialog.dismiss();
+                //dialog.dismiss();
                 try {
                     Log.d(TAG, "Json Response " + response.getStatus());
                     if(TextUtils.isEmpty(response.getStatus())){

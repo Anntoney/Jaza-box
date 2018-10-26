@@ -14,6 +14,8 @@
         android:orientation="vertical">
 
         <com.synnapps.carouselview.CarouselView
+
+            android:visibility="visible"
             android:id="@+id/carouselView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
@@ -22,11 +24,13 @@
             app:radius="6dp"
             app:slideInterval="3000"
             app:strokeColor="@color/colorBorder"
-            app:strokeWidth="1dp"/>
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 
     <android.support.v7.widget.CardView
+
+        android:id="@+id/cardV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"

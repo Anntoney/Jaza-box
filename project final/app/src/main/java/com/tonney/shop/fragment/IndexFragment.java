@@ -1,8 +1,10 @@
 package com.tonney.shop.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +17,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.github.mikephil.charting.formatter.IFillFormatter;
 import com.tonney.shop.R;
 import com.tonney.shop.adapter.CategoryAdapter;
 import com.tonney.shop.entity.ProductObject;
@@ -34,13 +37,14 @@ public class IndexFragment extends Fragment {
 
     private CarouselView carouselView;
 
-    int[] sampleImages = {R.drawable.vegetables, R.drawable.ruits, R.drawable.juice};
+    int[] sampleImages = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner4, R.drawable.banner5 , R.drawable.banner6, R.drawable.jazaboxlogo};
 
     private RecyclerView recyclerView;
 
     public IndexFragment() {
     }
 
+    @SuppressLint("NewApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_index, container, false);
@@ -50,10 +54,11 @@ public class IndexFragment extends Fragment {
 
         carouselView.setImageListener(imageListener);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.horizontal_product);
+         recyclerView = (RecyclerView)view.findViewById(R.id.horizontal_product);
         GridLayoutManager mGrid = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(mGrid);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
+
 
         if(!Helper.isNetworkAvailable(getActivity())){
             Helper.displayErrorMessage(getActivity(), getString(R.string.no_internet));

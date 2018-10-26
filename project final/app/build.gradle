@@ -57,6 +57,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.github.GrenderG:Toasty:1.2.5'
     compile 'com.github.thomper:sweet-alert-dialog:v1.4.0'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+
     //compile 'com.github.pwittchen:infinitescroll:0.0.2'
+
 }
 apply plugin: 'com.google.gms.google-services'

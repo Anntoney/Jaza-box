@@ -72,7 +72,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="@dimen/_8sdp"
                     android:text="$89"
-                    android:textColor="@color/promotion_blue"
+                    android:textColor="@color/colorAccent"
                     android:textSize="@dimen/_12sdp"
                     android:textStyle="bold" />
 

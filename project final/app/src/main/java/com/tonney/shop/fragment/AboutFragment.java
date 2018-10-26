@@ -1,5 +1,7 @@
 package com.tonney.shop.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -40,6 +42,10 @@ public class AboutFragment extends Fragment {
         phone = (TextView)view.findViewById(R.id.store_phone_number);
         opening_time = (TextView)view.findViewById(R.id.opening_time);
 
+
+
+
+
         if(!Helper.isNetworkAvailable(getActivity())){
             Helper.displayErrorMessage(getActivity(), getString(R.string.no_internet));
         }else{
@@ -47,6 +53,8 @@ public class AboutFragment extends Fragment {
         }
 
         return view;
+
+
     }
 
     private void storeInformationFromRemoteServer(){

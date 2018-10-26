@@ -24,7 +24,7 @@ public class ApiConstants {
     public static final String safaricom_Secret = "fsg7MJ3JSEZt0UZ2";
 
 
-    public static final String callback_url = "http://hibasoftware.co.ke/mpesa/callback.php";
+    public static final String callback_url = "https://www.hibasoftware.co.ke/mpesa/callback.php";
 
 
     public static final int PRODUCTION_RELEASE = 1;

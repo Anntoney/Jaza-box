@@ -33,7 +33,8 @@ public class AllFragment extends Fragment {
         recyclerView = (RecyclerView)view.findViewById(R.id.featured_product);
         GridLayoutManager mGrid = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(mGrid);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
+
 
        /* CategoryAdapter mAdapter = new CategoryAdapter(getActivity(), menuObject());
         //recyclerView.setNestedScrollingEnabled(false);
